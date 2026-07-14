@@ -1,0 +1,147 @@
+.booking-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.receipt-btn {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  background: #0f172a;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.receipt-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 23, 42, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.receipt-box {
+  background: #ffffff;
+  border-radius: 14px;
+  width: 100%;
+  max-width: 420px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+}
+
+.receipt-content {
+  padding: 28px;
+}
+
+.receipt-header {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.receipt-header h2 {
+  margin: 0;
+  font-size: 22px;
+  color: #0f172a;
+}
+
+.receipt-subtitle {
+  color: #64748b;
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+.receipt-divider {
+  border-top: 1px dashed #cbd5e1;
+  margin: 14px 0;
+}
+
+.receipt-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+  font-size: 14px;
+  color: #334155;
+}
+
+.receipt-row span:first-child {
+  color: #64748b;
+}
+
+.receipt-row span:last-child {
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.receipt-total {
+  font-size: 17px;
+  padding-top: 4px;
+}
+
+.receipt-total span {
+  color: #1d4ed8 !important;
+}
+
+.receipt-actions {
+  display: flex;
+  gap: 10px;
+  padding: 0 28px 24px;
+}
+
+.receipt-print-btn,
+.receipt-close-btn {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.receipt-print-btn {
+  background: #1d4ed8;
+  color: #fff;
+}
+
+.receipt-close-btn {
+  background: #e2e8f0;
+  color: #334155;
+}
+
+/* Print only the receipt content, hide everything else */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  #receipt-print-area,
+  #receipt-print-area * {
+    visibility: visible;
+  }
+
+  #receipt-print-area {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  .receipt-overlay {
+    background: none;
+  }
+
+  .receipt-actions {
+    display: none;
+  }
+}
