@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import api from "../services/api";
 import Receipt from "../components/Receipt";
 import "../receipt.css";
 
@@ -16,8 +16,8 @@ function MyBookings() {
       const token =
         localStorage.getItem("token");
 
-      const res = await axios.get(
-        "http://localhost:5000/api/bookings/my-bookings",
+      const res = await api.get(
+        "/api/bookings/my-bookings",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -36,8 +36,8 @@ function MyBookings() {
       const token =
         localStorage.getItem("token");
 
-      await axios.patch(
-        `http://localhost:5000/api/bookings/${bookingId}/cancel`,
+      await api.patch(
+        `/api/bookings/${bookingId}/cancel`,
         {},
         {
           headers: {

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import axios from "axios";
+import api from "../services/api";
 
 function AddHotel() {
   const [name, setName] = useState("");
@@ -16,8 +16,8 @@ function AddHotel() {
     e.preventDefault();
 
     try {
-      const res = await axios.post(
-        "http://localhost:5000/api/hotels",
+      const res = await api.post(
+        "/api/hotels",
         {
         name,
         location,

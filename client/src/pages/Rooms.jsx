@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import api from "../services/api";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -25,8 +25,8 @@ function Rooms() {
 
   const fetchRooms = async () => {
     try {
-      const res = await axios.get(
-        "http://localhost:5000/api/rooms"
+      const res = await api.get(
+        "/api/rooms"
       );
 
       setRooms(res.data.rooms);
@@ -57,8 +57,8 @@ function Rooms() {
       const token =
         localStorage.getItem("token");
 
-      await axios.post(
-        "http://localhost:5000/api/bookings",
+      await api.post(
+        "/api/bookings",
         {
           room: roomId,
           checkIn: toISODate(checkIn),

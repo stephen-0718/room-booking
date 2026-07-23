@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import api from "../services/api";
 
 function AddRoom() {
   const [hotels, setHotels] = useState([]);
@@ -18,9 +18,7 @@ function AddRoom() {
 
   const fetchHotels = async () => {
     try {
-      const res = await axios.get(
-        "http://localhost:5000/api/hotels"
-      );
+      const res = await api.get("/api/hotels");
 
       setHotels(res.data.hotels);
     } catch (error) {
@@ -32,15 +30,7 @@ function AddRoom() {
     e.preventDefault();
 
     try {
-      const res = await axios.post(
-        "http://localhost:5000/api/rooms",
-        {
-          hotel,
-          roomNumber,
-          roomType,
-          price,
-        }
-      );
+     const res = await api.post("/api/rooms", { hotel, roomNumber, roomType, price });
 
       alert(
         "Room Added Successfully"

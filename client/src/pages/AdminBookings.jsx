@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import api from "../services/api";
 
 function AdminBookings() {
   const [bookings, setBookings] =
@@ -11,8 +11,8 @@ function AdminBookings() {
 
   const fetchBookings = async () => {
     try {
-      const res = await axios.get(
-        "http://localhost:5000/api/bookings"
+      const res = await api.get(
+        "/api/bookings"
       );
 
       setBookings(
