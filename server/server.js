@@ -17,7 +17,10 @@ const dashboardRoutes =
   require("./routes/dashboardRoutes");
   
 // Middleware FIRST
-app.use(cors());
+app.use(cors({
+  origin: "https://room-booking-nu-mauve.vercel.app",
+  credentials: true
+}));
 app.use(express.json());
 
 // Routes AFTER middleware
