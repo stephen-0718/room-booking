@@ -13,16 +13,14 @@ function Hotels() {
   }, []);
 
   const fetchHotels = async () => {
-    try {
-      const res = await api.get(
-        "/api/hotels"
-      );
-
-      setHotels(res.data.hotels);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  try {
+    const res = await api.get("/api/hotels");
+    setHotels(res.data.hotels || []);  // fallback empty array
+  } catch (error) {
+    console.log(error);
+    setHotels([]);  // crash aagama irukka
+  }
+};
 
   const filteredHotels = hotels.filter(
     (hotel) =>
