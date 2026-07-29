@@ -32,12 +32,12 @@ function App() {
         />
 
         <Route
-          path="/login"
+          path="/login" //login
           element={<Login />}
         />
 
         <Route
-          path="/register"
+          path="/register" //registerrr
           element={<Register />}
         />
 
